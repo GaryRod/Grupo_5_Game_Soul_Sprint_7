@@ -713,6 +713,18 @@ select {
     text-decoration: inherit;
 }
 
+.erroresRegistro-ul {
+    margin: 2%;
+}
+
+.errorFatal {
+    border: 3px solid #da1313;
+}
+
+.errorFatalDos {
+    border: 3px solid rgb(115, 255, 0);
+}
+
 .text-danger{
     color:#da1313;
 }
@@ -1414,9 +1426,9 @@ select {
 
 @media (min-width: 1280px) {
     /*-----------Header---------------*/
-    .header{
-        /* padding: 0 10%; */
-    }
+    /* .header {
+         padding: 0 10%; 
+    } */
 
     /*-----------Login - Iniciar sesión - Editar usuario---------------*/
     .form__inputs {

@@ -5,11 +5,12 @@
 
 <body class="body">
     <main class="main--registro-login animate__animated animate__fadeInDown">
-        <form action="/users/register" method="post" class="form-contenedor"  enctype="multipart/form-data">
+        <form action="/users/register" method="post" class="form-contenedor" id="formulario-registro"  enctype="multipart/form-data">
             <div class="logo">
                 <a href="/"><img src="/images/logo/Game-Soul.png" class="logo-img"></a>
             </div>
 
+            <ul class="erroresRegistro-ul" id="erroresRegistro-ul"></ul>
             <section class="form__primera-seccion">
                 <span class="form__subtitulo-span">REGISTRATE O INICIA SESIÓN CON TUS REDES SOCIALES</span>
                 <ul class="lista-iconos-redes">
@@ -28,7 +29,7 @@
                     <div class="form__contenedor-inputs">
                         <div class="form__cont">
                             <label>Nombre:</label>
-                            <input type="text" name="nombre" class="form__inputs" value="<%= locals.oldData ? oldData.nombre : null %>">
+                            <input type="text" name="nombre" class="form__inputs" id="registro-nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                             <% if (locals.errors && errors.nombre) { %>
                                 <p class="text-danger"><%= errors.nombre.msg %></p>
                             <% } %>
@@ -36,7 +37,7 @@
 
                         <div class="form__cont">
                             <label>E-mail:</label>
-                            <input type="email" name="email" class="form__inputs" value="<%= locals.oldData ? oldData.email : null %>">
+                            <input type="email" name="email" class="form__inputs" id="registro-email" value="<%= locals.oldData ? oldData.email : null %>">
                             <% if (locals.errors && errors.email) { %>
                                 <p class="text-danger"><%= errors.email.msg %></p>
                             <% } %>
@@ -44,7 +45,7 @@
 
                         <div class="form__cont">
                             <label>Contraseña:</label>
-                            <input type="password" name="password" class="form__inputs" value="<%= locals.oldData ? oldData.password : null %>">
+                            <input type="password" name="password" class="form__inputs" id="registro-password" value="<%= locals.oldData ? oldData.password : null %>">
                             <% if (locals.errors && errors.password) { %>
                                 <p class="text-danger"><%= errors.password.msg %></p>
                             <% } %>
@@ -52,7 +53,7 @@
 
                         <div class="form__cont">
                             <label>Fecha de nacimiento:</label>
-                            <input type="date" name="fechaNacimiento" class="form__inputs">
+                            <input type="date" name="fechaNacimiento" class="form__inputs" id="registro-fechaNacimiento">
                             <% if (locals.errors && errors.fechaNacimiento) { %>
                                 <p class="text-danger"><%= errors.fechaNacimiento.msg %></p>
                             <% } %>
@@ -60,13 +61,13 @@
 
                         <div>
                             <label>Imagen de perfil:</label>
-                            <input type="file" name="avatar" accept=".png, .jpg" >
+                            <input type="file" name="avatar" accept=".png, .jpg" id="registro-imagen">
                         </div>
                     </div>
 
                     <div class="form__contenedor-recuerdame-tyc" style="display: flex; flex-direction: column;">
                         <label for="tyc">Términos y condiciones
-                            <input type="checkbox" id="tyc" class="form__recuerdame-tyc" name="tyc">
+                            <input type="checkbox" id="tyc" class="form__recuerdame-tyc" name="tyc" id="registro-terminos">
                         </label>
                         <% if (locals.errors && errors.tyc) { %>
                             <p class="text-danger"><%= errors.tyc.msg %></p>
@@ -80,7 +81,8 @@
         </form>
     </main>
 
-    <%- include ('../partials/footer') %> 
+    <%- include ('../partials/footer') %>
+    <script src="../../../js/validations/registerJS.js"></script> 
 
 </body>
 </html>
