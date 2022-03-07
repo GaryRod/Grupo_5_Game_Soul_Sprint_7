@@ -727,6 +727,7 @@ select {
 
 .text-danger{
     color:#da1313;
+    list-style-type: none;
 }
 
 /*-----------Editar Usuario---------------*/
