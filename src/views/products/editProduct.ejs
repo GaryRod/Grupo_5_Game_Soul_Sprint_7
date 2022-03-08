@@ -9,25 +9,25 @@
 
     <main class="main">
         <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
-            
+            <ul class="erroresRegistro-ul" id="errorEditProductUl"></ul>
             <div class="form__seccion-nombre">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
-                <input type="text" class="input__create-product" name="nombre" placeholder="Nombre del producto..." value= "<%= productToEdit.name_game%>"  required>
+                <input type="text" class="input__create-product" name="nombre" id= "nombre_editar_producto" placeholder="Nombre del producto..." value= "<%= productToEdit.name_game%>">
             </div>
             
             <div class="form__seccion-descripcion">
                 <h5 class="form__seccion-h5">Descripción del producto:</h5>
-                <textarea class="input__create-product" name="descripcion" placeholder="Descripción del producto..." cols="30" rows="5" required><%= productToEdit.description %></textarea>
+                <textarea class="input__create-product" name="descripcion" id= "descripcion_editar_producto" placeholder="Descripción del producto..." cols="30" rows="5" required><%= productToEdit.description %></textarea>
             </div>
 
             <div class="form__seccion-img">
                 <h5 class="form__seccion-h5">Inserta una imagen:</h5>
-                <input type="file" class="input__create-product" accept=".png, .jpg" multiple name="imagen" required>
+                <input type="file" class="input__create-product" id= "imagen_editar_producto" accept=".png, .jpg" multiple name="imagen">
             </div>
 
             <div class="form__seccion-categoria">
                 <h5 class="form__seccion-h5">Selecciona un género:</h5>
-                <select class="input__create-product" name="genero" required>
+                <select class="input__create-product" name="genero">
                     <option value="1" <% if (productToEdit.genres_id == 1) { %> selected <% } %>>Acción</option>
                     <option value="2" <% if (productToEdit.genres_id == 2) { %> selected <% } %>>Aventura</option>
                     <option value="3" <% if (productToEdit.genres_id == 3) { %> selected <% } %>>FPS</option>
@@ -38,7 +38,7 @@
 
             <div class="form__seccion-edicion">
                 <h5 class="form__seccion-h5">Selecciona una edición:</h5>
-                <select class="input__create-product" name="edicion" required>
+                <select class="input__create-product" name="edicion">
                     <option value="1" <% if (productToEdit.editions_id == 1) { %> selected <% } %>>Estándar</option>
                     <option value="2" <% if (productToEdit.editions_id == 2) { %> selected <% } %>>Deluxe</option>
                     <option value="3" <% if (productToEdit.editions_id == 3) { %> selected <% } %>>Gold</option>
@@ -47,7 +47,7 @@
 
             <div class="form__seccion-precio">
                 <h5 class="form__seccion-h5">Escribe un precio:</h5>
-                <input type="text" class="input__create-product" name="precio" value= "<%= productToEdit.price %>" required>
+                <input type="text" class="input__create-product" name="precio" value= "<%= productToEdit.price %>">
             </div>
 
             <div class="form__seccion-inputCrear">
@@ -57,6 +57,6 @@
     </main> 
 
     <%- include ('../partials/footer') %>
-
+    <script src="../../../public/js/validations/editProductJS.js"></script>
 </body>
 </html>
