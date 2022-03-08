@@ -9,25 +9,25 @@
 
     <main class="main main--createProduct">
         <form action="" method="post" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
-            
+            <ul class="erroresRegistro-ul" id="errorCreateProductUl"></ul>
             <div class="form__seccion-nombre">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
-                <input type="text" class="input__create-product" name="nombre" placeholder="Nombre del producto..." required>
+                <input type="text" class="input__create-product" name="nombre" id= "nombre_crear_producto" placeholder="Nombre del producto...">
             </div>
             
             <div class="form__seccion-descripcion">
                 <h5 class="form__seccion-h5">Descripción del producto:</h5>
-                <textarea class="input__create-product" name="descripcion" placeholder="Descripción del producto..." cols="30" rows="5" required></textarea>
+                <textarea class="input__create-product" name="descripcion" id= "descripcion_crear_producto" placeholder="Descripción del producto..." cols="30" rows="5"></textarea>
             </div>
             
             <div class="form__seccion-img">
                 <h5 class="form__seccion-h5">Inserta una imagen:</h5>
-                <input type="file" class="input__create-product" accept=".png, .jpg" multiple name="imagen">
+                <input type="file" class="input__create-product" id= "imagen_crear_producto" accept=".png, .jpg" multiple name="imagen">
             </div>
             
             <div class="form__seccion-categoria">
                 <h5 class="form__seccion-h5">Selecciona un género:</h5>
-                <select class="input__create-product" name="genero" required>
+                <select class="input__create-product" name="genero">
                     <% promGenres.forEach(genero => { %>
                         <option value="<%= genero.id %>"> <%= genero.name_genre %> </option>
                     <% }) %>
@@ -36,7 +36,7 @@
             
             <div class="form__seccion-edicion">
                 <h5 class="form__seccion-h5">Selecciona una edición:</h5>
-                <select class="input__create-product" name="edicion" required>
+                <select class="input__create-product" name="edicion">
                     <% promEditions.forEach(edicion => { %>
                         <option value="<%= edicion.id %>"> <%= edicion.name_editions %> </option>
                     <% }) %>
@@ -45,7 +45,7 @@
             
             <div class="form__seccion-precio">
                 <h5 class="form__seccion-h5">Escribe un precio:</h5>
-                <input type="text" class="input__create-product" name="precio" required>
+                <input type="text" class="input__create-product" name="precio">
             </div>
 
             <div class="form__seccion-inputCrear">
@@ -55,7 +55,7 @@
     </main> 
 
     <%- include ('../partials/footer') %>
-
+    <script src="../../../public/js/validations/createProductJS.js"></script>
 </body>
 </html>
 
