@@ -543,30 +543,33 @@
 }
 
 .formCreateProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background-color: #eee;
     border-radius: 50px;
     color: #000;
     margin: 0 auto;
-    padding: 5px;
+    padding: 10px;
 }
 
-.form__seccion-titulo {
-    text-align: center;
-    margin: 2% 0 2% 0;
+.form__cont-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
 }
-
+/* 
 .form__seccion-h5 {
     text-align: center;
-    margin: 1%;
-}
+} */
 
 .input__create-product {
     width: 60%;
-    margin: 0 0 0 20%;
+    border-radius: 5px;
 }
 
 .boton-enviar-producto {
-    margin: 5% 0 5% 30%;
     padding: 2%;
     border-radius: 50px;
     transition: all 0.5s;
@@ -1201,11 +1204,6 @@ select {
         font-size: 1.5em;
     }
 
-    /*-----------Crear producto---------------*/
-    .boton-enviar-producto {
-        margin: 5% 0 5% 30%;
-    }
-
     /*-----------Login - Inicar sesión - Editar usuario---------------*/
     .form__inputs {
         width: 50%;
@@ -1344,11 +1342,6 @@ select {
         border-right: solid 1px #548ca8;
     }
 
-    /*-----------Crear producto---------------*/
-    .boton-enviar-producto {
-        margin: 5% 0 5% 30%;
-    }
-
     /*-----------Login - Iniciar sesión - Editar usuario---------------*/
     .logo-img{
         width: 150px;
@@ -1442,9 +1435,5 @@ select {
 
     .formCreateProduct {
         max-width: 100%;
-    }
-
-    .boton-enviar-producto {
-        margin: 5% 30%;
     }
 }

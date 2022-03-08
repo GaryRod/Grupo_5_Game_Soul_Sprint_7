@@ -1,10 +1,10 @@
 const {body} = require('express-validator');
 const path = require('path')
-const db = require("../database/models");
 
 const validaciones = [
     body('nombre')
-        .notEmpty().withMessage("Debes completar con un nombre"),
+        .notEmpty().withMessage("Debes completar con un nombre")
+        .isLength({min: 2}).withMessage("El nombre debe tener al menos 2 carateres"),
     body('tyc')
         .notEmpty().withMessage("Debes aceptar los términos y condiciones"),
     body('fechaNacimiento')
@@ -12,15 +12,6 @@ const validaciones = [
     body('email')
         .notEmpty().withMessage("Debes completar con un email")
         .isEmail().withMessage("Debes ingresar un email válido"),
-    body("email", "Email en uso, favor introduzca otra dirección de correo").custom((value) => {
-        return db.User
-            .findOne({ where: { email: value } })
-            .then((usuario) => {
-            if (usuario) {
-                return Promise.reject();
-            }
-            })
-    }),
     body('password')
         .notEmpty().withMessage("Debes escribir una contraseña")
         .isLength({min: 8}).withMessage("Debes escribir una contraseña de 8 o más caracteres"),

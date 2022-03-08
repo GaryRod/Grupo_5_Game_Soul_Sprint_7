@@ -4,6 +4,7 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 const upload = require("../middlewares/multerMiddleware");
 const authMiddleware = require('../middlewares/authMiddleware');
+const validacionesProductos = require('../middlewares/validatorProductsMiddleware');
 
 /* Con readDetail - LEE PRODUCTO SEGUN ID */
 router.get('/', productController.products)
@@ -14,7 +15,7 @@ router.get('/productCart', productController.productCart);
 router.post('/productCart', productController.buyCart);
 
 router.get('/create', authMiddleware, productController.createProduct);
-router.post('/create', upload.single("imagen"), productController.store);
+router.post('/create', upload.single("imagen"), validacionesProductos, productController.store);
 
 router.get('/edit/:id', authMiddleware, productController.editProduct);
 router.put('/edit/:id', upload.single("imagen"), productController.update);
