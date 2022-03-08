@@ -77,7 +77,7 @@ window.addEventListener("load", () => {
             let erroresUlRegistro = document.getElementById("erroresRegistro-ul");
 
             errores.forEach(error => {
-                erroresUlRegistro.innerHTML = `<li class="text-danger">${error}</li>`
+                erroresUlRegistro.innerHTML += `<li class="text-danger">${error}</li>`
             })
         } else {
             alert("Usuario registrado correctamente!")

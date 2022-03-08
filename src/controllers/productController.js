@@ -51,7 +51,7 @@ const productController = {
         })
 
 		await db.Image.create({
-			img_url: req.file.filename,
+			img_url: req.file ? req.file.filename : 'default.png',
 			games_id: producto.id
 		})
         res.redirect('/')
@@ -94,7 +94,7 @@ const productController = {
 			force: true
         })
 		await db.Image.create({
-			img_url: req.file.filename,
+			img_url: req.file ? req.file.filename : 'default.png',
 			games_id: req.params.id
 		})
         res.redirect('/')

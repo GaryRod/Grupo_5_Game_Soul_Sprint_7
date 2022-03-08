@@ -12,6 +12,13 @@
     justify-content: center;
 }
 
+.alert-warning{
+    color:#842029;
+    background-color: #F8D7DA;
+    text-align: center;
+    border-radius: 10px;
+  }
+
 .body::-webkit-scrollbar{
     width: 10px;
 }
@@ -730,6 +737,7 @@ select {
 
 .text-danger{
     color:#da1313;
+    list-style-type: none;
 }
 
 /*-----------Editar Usuario---------------*/

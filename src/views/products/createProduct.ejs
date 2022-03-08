@@ -10,6 +10,7 @@
     <main class="main main--createProduct">
         <form action="" method="post" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
             
+            <ul class="erroresRegistro-ul" id="errorCreateProductUl"></ul>
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
                 <input type="text" class="input__create-product" name="nombre" placeholder="Ej: GameSoul" value="<%= locals.oldData ? oldData.nombre : null %>">
@@ -75,7 +76,7 @@
     </main> 
 
     <%- include ('../partials/footer') %>
-
+    <script src="../../../public/js/validations/createProductJS.js"></script>
 </body>
 </html>
 
