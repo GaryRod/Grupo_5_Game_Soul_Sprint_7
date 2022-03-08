@@ -5,7 +5,7 @@
 
 <body class="body">
     <main class="main--registro-login animate__animated animate__fadeInDown">
-        <form action="" method="POST" class="form-contenedor">
+        <form action="" method="POST" class="form-contenedor" id="form-login">
             <div class="logo">
                 <a href="/"><img src="/images/logo/Game-Soul.png" class="logo-img"></a>
             </div>
@@ -24,6 +24,13 @@
                     <span class="form__subtitulo-login">¿No tenés una cuenta?</span>
                     <span><a href="/users/register" class="form__subtitulo-a">Crear cuenta</a></span>
                 </div>
+
+
+
+                <div class="errores-login">
+                    <ul class="ul-errores"></ul>
+                </div>
+
 
                 <div class="form__contenedor-inputs">
                     <div class="form__cont">
@@ -63,10 +70,12 @@
                     <button type="submit" value="Iniciar Sesión" class="button-crearCuenta-iniciarSesion">Iniciar sesion</button>
                 </div>
             </section>
+            <script src="/js/validations/loginJS.js"></script>
         </form>
     </main>
 
     <%- include ('../partials/footer') %>
+    
 
 </body>
 </html>
