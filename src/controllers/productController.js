@@ -38,7 +38,7 @@ const productController = {
 			img_url: req.file.filename,
 			games_id: producto.id
 		})
-    	res.redirect('/')
+        res.redirect('/')
     },
     editProduct: (req, res) => {
         db.Game.findByPk(req.params.id)
