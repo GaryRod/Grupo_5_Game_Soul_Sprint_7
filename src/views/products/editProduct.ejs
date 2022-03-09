@@ -8,24 +8,26 @@
     <%- include('../partials/header')  %> 
 
     <main class="main">
-        <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
-            
+        <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" id="formulario_editar_producto" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
+
             <ul class="erroresRegistro-ul" id="errorEditProductUl"></ul>
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
-                <input type="text" class="input__create-product" name="nombre" placeholder="Ej: GameSoul" value= "<%= locals.oldData ? oldData.nombre : productToEdit.name_game %>">
+                <input type="text" class="input__create-product" name="nombre" id= "nombre_editar_producto" placeholder="Ej: GameSoul" value= "<%= locals.oldData ? oldData.nombre : productToEdit.name_game %>">
                 <% if (locals.errors && errors.nombre) { %>
                     <p class="text-danger"><%= errors.nombre.msg %></p>
                 <% } %>
             </div>
-            
+            <p class="text-danger" id="error_nombre"></p>
+
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Descripción del producto:</h5>
-                <textarea class="input__create-product" name="descripcion" placeholder="Ej: GameSoul es un juego multiplataforma..." cols="30" rows="5"><%= locals.oldData ? oldData.descripcion : productToEdit.description %></textarea>
+                <textarea class="input__create-product" id= "descripcion_editar_producto" name="descripcion" placeholder="Ej: GameSoul es un juego multiplataforma..." cols="30" rows="5"><%= locals.oldData ? oldData.descripcion : productToEdit.description %></textarea>
                 <% if (locals.errors && errors.descripcion) { %>
                     <p class="text-danger"><%= errors.descripcion.msg %></p>
                 <% } %>
             </div>
+            <p class="text-danger" id="error_descripcion"></p>
 
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Insertá una imagen:</h5>
@@ -34,10 +36,11 @@
                     <p class="text-danger"><%= errors.imagen.msg %></p>
                 <% } %>
             </div>
+            <p class="text-danger" id="error_imagen"></p>
 
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Seleccioná un género:</h5>
-                <select class="input__create-product" name="genero">
+                <select class="input__create-product" id= "genero_editar_producto" name="genero">
                     <option disabled selected>- Genero -</option>
                     <% allGenres.forEach(genero => { %>
                         <option value="<%= genero.id %>" <%= locals.oldData && oldData.genero == genero.id || productToEdit.genres_id == genero.id? "selected" : "" %>> <%= genero.name_genre %> </option>
@@ -47,10 +50,11 @@
                     <p class="text-danger"><%= errors.genero.msg %></p>
                 <% } %>
             </div>
+            <p class="text-danger" id="error_genero"></p>
 
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Seleccioná una edición:</h5>
-                <select class="input__create-product" name="edicion">
+                <select class="input__create-product" id= "edicion_editar_producto" name="edicion">
                     <option disabled selected>- Edición -</option>
                     <% allEditions.forEach(edicion => { %>
                         <option value="<%= edicion.id %>" <%= locals.oldData && oldData.edicion == edicion.id || productToEdit.genres_id == edicion.id? "selected" : "" %>> <%= edicion.name_editions %> </option>
@@ -60,14 +64,16 @@
                     <p class="text-danger"><%= errors.edicion.msg %></p>
                 <% } %>
             </div>
+            <p class="text-danger" id="error_edicion"></p>
 
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Escribe un precio:</h5>
-                <input type="number" class="input__create-product" name="precio" value= "<%= locals.oldData ? oldData.precio : productToEdit.price %>">
+                <input type="number" class="input__create-product" id= "precio_editar_producto" name="precio" value= "<%= locals.oldData ? oldData.precio : productToEdit.price %>">
                 <% if (locals.errors && errors.precio) { %>
                     <p class="text-danger"><%= errors.precio.msg %></p>
                 <% } %>
             </div>
+            <p class="text-danger" id="error_precio"></p>
 
             <div class="form__cont-elements">
                 <input type="submit" class="boton-enviar-producto" value="Editar Producto">
@@ -76,6 +82,6 @@
     </main> 
 
     <%- include ('../partials/footer') %>
-    <script src="../../../public/js/validations/editProductJS.js"></script>
+    <script src="../../../js/validations/editProductJS.js"></script>
 </body>
 </html>

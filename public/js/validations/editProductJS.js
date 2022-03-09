@@ -1,48 +1,88 @@
 window.addEventListener('load', function(){
+
     let nombre = document.querySelector('#nombre_editar_producto')
-    let descripcion = document.querySelector('#"descripcion_editar_producto')
+    let descripcion = document.querySelector('#descripcion_editar_producto')
     let imagen = document.querySelector('#imagen_editar_producto')
     let formatoDeImagen = ['.jpg','.jpeg','.png','.gif']
-    let formulario = document.querySelector('form')
-
+    let formulario = document.querySelector('#formulario_editar_producto')
+    let precio = document.querySelector('#precio_editar_producto')
+    let genero = document.querySelector("#genero_editar_producto")
+    let edicion = document.querySelector('#edicion_editar_producto')
     formulario.addEventListener('submit', function(event){
 
-        let errores=[]
+        let errores=[] 
 
-        if(nombre.value = '' || nombre.value.length < 6){
+        if(nombre.value == '' || nombre.value.length < 6){
             let error = 'El nombre debe contener mínimo 5 caracteres'
-            errores.push(error)
-            nombre.classList.add("errorFatal")
+            errores.push(error)            
         }
-        if(descripcion.value = '' || descripcion.value.length <21){
+        if(descripcion.value == '' || descripcion.value.length <21){
             let error = 'La descripción debe contener mínimo 20 caracteres'
             errores.push(error)
-            descripcion.classList.add('errorFatal')
+        }
+        if(genero.value == '- Género -'){
+            let error = 'Seleccione un género'
+            errores.push(error)
+        }
+        if(edicion.value == '- Edición -'){
+            let error = 'Seleccione una edición'
+            errores.push(error)
+        }
+        if(precio.value == ''){
+            let error = 'Escriba un precio'
+            errores.push(error)            
         }
         if(imagen){
             let nombreImagen = imagen.value
             let extension = nombreImagen.split('.').pop()
             if(!formatoDeImagen.includes(extension)){
                 let error = 'Los formatos permitidos son '+ formatoDeImagen
-                errores.push(error)
-                imagen.classList.add('errorFatal')
-            }else {
-                imagen.classList.remove("errorFatal");
-                true;
+                errores.push(error)                
             }
         }
         if (errores.length > 0) {
             event.preventDefault();
 
-            let erroresUlEditProduct = document.getElementById("errorEditProductUl");
+            
+            let errorNombre = document.querySelector('#error_nombre')
+            let errorDescripcion = document.querySelector('#error_descripcion')
+            let errorImagen = document.querySelector('#error_imagen')
+            let errorPrecio = document.querySelector('#error_precio')
+            let errorGenero = document.querySelector('#error_genero')
+            let errorEdicion = document.querySelector('#error_edicion')
 
-            errores.forEach(error => {
-                erroresUlEditProduct.innerHTML += `<li class="text-danger">${error}</li>`
-            })
+            let erroresNombre = errores.indexOf('El nombre debe contener mínimo 5 caracteres')
+            if(erroresNombre != -1){
+                errorNombre.innerHTML += errores[erroresNombre]
+            }
+            errorNombre.style.textAlign='center'
+            let erroresDescripcion = errores.indexOf('La descripción debe contener mínimo 20 caracteres')
+            if(erroresDescripcion != -1){
+                errorDescripcion.innerHTML += errores[erroresDescripcion]
+            }
+            errorDescripcion.style.textAlign='center'
+            let erroresImagen = errores.indexOf('Los formatos permitidos son '+ formatoDeImagen)
+            if(erroresImagen != -1){
+                errorImagen.innerHTML += errores[erroresImagen]
+            }
+            errorImagen.style.textAlign='center'
+            let erroresPrecio = errores.indexOf('Escriba un precio')
+            if(erroresPrecio != -1){
+                errorPrecio.innerHTML += errores[erroresPrecio]
+            }
+            errorPrecio.style.textAlign='center'
+            let erroresGenero = errores.indexOf('Seleccione un género')
+            if(erroresGenero != -1){
+                errorGenero.innerHTML += errores[erroresGenero]
+            }
+            errorGenero.style.textAlign='center'
+            let erroresEdicion = errores.indexOf('Seleccione una edición')
+            if(erroresEdicion != -1){
+                errorEdicion.innerHTML += errores[erroresEdicion]
+            }
+            errorEdicion.style.textAlign='center'
         } else {
-            alert("Producto modificado exitosamente!")
+            alert("Producto creado exitosamente!")
         }
-
     })
-
 })
