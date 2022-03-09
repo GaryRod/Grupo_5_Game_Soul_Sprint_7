@@ -9,48 +9,67 @@
 
     <main class="main">
         <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="formCreateProduct animate__animated animate__fadeInDown" enctype="multipart/form-data">
+            
             <ul class="erroresRegistro-ul" id="errorEditProductUl"></ul>
-            <div class="form__seccion-nombre">
+            <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
-                <input type="text" class="input__create-product" name="nombre" id= "nombre_editar_producto" placeholder="Nombre del producto..." value= "<%= productToEdit.name_game%>">
+                <input type="text" class="input__create-product" name="nombre" placeholder="Ej: GameSoul" value= "<%= productToEdit.name_game%>">
+                <% if (locals.errors && errors.nombre) { %>
+                    <p class="text-danger"><%= errors.nombre.msg %></p>
+                <% } %>
             </div>
             
-            <div class="form__seccion-descripcion">
+            <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Descripción del producto:</h5>
-                <textarea class="input__create-product" name="descripcion" id= "descripcion_editar_producto" placeholder="Descripción del producto..." cols="30" rows="5" required><%= productToEdit.description %></textarea>
+                <textarea class="input__create-product" name="descripcion" placeholder="Ej: GameSoul es un juego multiplataforma..." cols="30" rows="5"><%= productToEdit.description %></textarea>
+                <% if (locals.errors && errors.descripcion) { %>
+                    <p class="text-danger"><%= errors.descripcion.msg %></p>
+                <% } %>
             </div>
 
-            <div class="form__seccion-img">
+            <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Inserta una imagen:</h5>
                 <input type="file" class="input__create-product" id= "imagen_editar_producto" accept=".png, .jpg" multiple name="imagen">
+                <% if (locals.errors && errors.imagen) { %>
+                    <p class="text-danger"><%= errors.imagen.msg %></p>
+                <% } %>
             </div>
 
-            <div class="form__seccion-categoria">
+            <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Selecciona un género:</h5>
                 <select class="input__create-product" name="genero">
-                    <option value="1" <% if (productToEdit.genres_id == 1) { %> selected <% } %>>Acción</option>
-                    <option value="2" <% if (productToEdit.genres_id == 2) { %> selected <% } %>>Aventura</option>
-                    <option value="3" <% if (productToEdit.genres_id == 3) { %> selected <% } %>>FPS</option>
-                    <option value="4" <% if (productToEdit.genres_id == 4) { %> selected <% } %>>Estrategia</option>
-                    <option value="5" <% if (productToEdit.genres_id == 5) { %> selected <% } %>>Deportes</option>
+                    <option disabled selected>- Genero -</option>
+                    <% allGenres.forEach(genero => { %>
+                        <option value="<%= genero.id %>" <%= locals.oldData && oldData.genero == genero.id || productToEdit.genres_id == genero.id? "selected" : "" %>> <%= genero.name_genre %> </option>
+                    <% }) %>
                 </select>
+                <% if (locals.errors && errors.genero) { %>
+                    <p class="text-danger"><%= errors.genero.msg %></p>
+                <% } %>
             </div>
 
-            <div class="form__seccion-edicion">
-                <h5 class="form__seccion-h5">Selecciona una edición:</h5>
+            <div class="form__cont-elements">
+                <h5 class="form__seccion-h5">Seleccioná una edición:</h5>
                 <select class="input__create-product" name="edicion">
-                    <option value="1" <% if (productToEdit.editions_id == 1) { %> selected <% } %>>Estándar</option>
-                    <option value="2" <% if (productToEdit.editions_id == 2) { %> selected <% } %>>Deluxe</option>
-                    <option value="3" <% if (productToEdit.editions_id == 3) { %> selected <% } %>>Gold</option>
+                    <option disabled selected>- Edición -</option>
+                    <% allEditions.forEach(edicion => { %>
+                        <option value="<%= edicion.id %>" <%= locals.oldData && oldData.edicion == edicion.id || productToEdit.genres_id == edicion.id? "selected" : "" %>> <%= edicion.name_editions %> </option>
+                    <% }) %>
                 </select>
+                <% if (locals.errors && errors.edicion) { %>
+                    <p class="text-danger"><%= errors.edicion.msg %></p>
+                <% } %>
             </div>
 
-            <div class="form__seccion-precio">
+            <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Escribe un precio:</h5>
                 <input type="text" class="input__create-product" name="precio" value= "<%= productToEdit.price %>">
+                <% if (locals.errors && errors.precio) { %>
+                    <p class="text-danger"><%= errors.precio.msg %></p>
+                <% } %>
             </div>
 
-            <div class="form__seccion-inputCrear">
+            <div class="form__cont-elements">
                 <input type="submit" class="boton-enviar-producto" value="Editar Producto">
             </div>
         </form>

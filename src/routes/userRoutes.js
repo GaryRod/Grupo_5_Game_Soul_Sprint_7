@@ -13,7 +13,6 @@ router.get('/login', guestMiddleware, userController.login)
 router.post('/login', validacionesLogin, userController.loginProcess)
 
 router.get('/register', guestMiddleware, userController.register)
-
 router.post('/register', userIconsUpload.single('avatar'), validacionesRegister, userController.registerProcess);
 
 router.get('/userProfile', authMiddleware, userController.profile);

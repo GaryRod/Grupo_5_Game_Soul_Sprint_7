@@ -9,7 +9,7 @@ const userController ={
     login: (req, res) => {
         res.render('./users/login')
     },
-    registerProcess: (req, res) => {
+    registerProcess: async (req, res) => {
         const errores = validationResult(req);
         
         if (errores.errors.length > 0 ) {
@@ -18,17 +18,31 @@ const userController ={
                 oldData: req.body
             })
         }
-        db.User.create({
+
+        let userInDb = await db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        if (userInDb) {
+            return res.render('./users/register',{
+                errors: {
+                    email: {
+                        msg: 'Este email ya está registrado'
+                    }
+                },
+                oldData: req.body
+            })
+        }
+
+        -await db.User.create({
             first_name: req.body.nombre,
             email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file ? req.file.filename : 'default.png',
             type_user: String(req.body.email).includes('@gamesoul.com')
             })
-            .then(() => {
-                return res.redirect('/users/login');
-            })
-            .catch(error => res.send(error))
+        return res.redirect('/users/login');
     },
     loginProcess: async (req, res) => {
         try {
