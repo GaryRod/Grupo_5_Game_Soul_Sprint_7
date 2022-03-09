@@ -13,7 +13,7 @@
             <ul class="erroresRegistro-ul" id="errorEditProductUl"></ul>
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Nombre del producto:</h5>
-                <input type="text" class="input__create-product" name="nombre" placeholder="Ej: GameSoul" value= "<%= productToEdit.name_game%>">
+                <input type="text" class="input__create-product" name="nombre" placeholder="Ej: GameSoul" value= "<%= locals.oldData ? oldData.nombre : productToEdit.name_game %>">
                 <% if (locals.errors && errors.nombre) { %>
                     <p class="text-danger"><%= errors.nombre.msg %></p>
                 <% } %>
@@ -21,14 +21,14 @@
             
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Descripción del producto:</h5>
-                <textarea class="input__create-product" name="descripcion" placeholder="Ej: GameSoul es un juego multiplataforma..." cols="30" rows="5"><%= productToEdit.description %></textarea>
+                <textarea class="input__create-product" name="descripcion" placeholder="Ej: GameSoul es un juego multiplataforma..." cols="30" rows="5"><%= locals.oldData ? oldData.descripcion : productToEdit.description %></textarea>
                 <% if (locals.errors && errors.descripcion) { %>
                     <p class="text-danger"><%= errors.descripcion.msg %></p>
                 <% } %>
             </div>
 
             <div class="form__cont-elements">
-                <h5 class="form__seccion-h5">Inserta una imagen:</h5>
+                <h5 class="form__seccion-h5">Insertá una imagen:</h5>
                 <input type="file" class="input__create-product" id= "imagen_editar_producto" accept=".png, .jpg" multiple name="imagen">
                 <% if (locals.errors && errors.imagen) { %>
                     <p class="text-danger"><%= errors.imagen.msg %></p>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="form__cont-elements">
-                <h5 class="form__seccion-h5">Selecciona un género:</h5>
+                <h5 class="form__seccion-h5">Seleccioná un género:</h5>
                 <select class="input__create-product" name="genero">
                     <option disabled selected>- Genero -</option>
                     <% allGenres.forEach(genero => { %>
@@ -63,7 +63,7 @@
 
             <div class="form__cont-elements">
                 <h5 class="form__seccion-h5">Escribe un precio:</h5>
-                <input type="text" class="input__create-product" name="precio" value= "<%= productToEdit.price %>">
+                <input type="number" class="input__create-product" name="precio" value= "<%= locals.oldData ? oldData.precio : productToEdit.price %>">
                 <% if (locals.errors && errors.precio) { %>
                     <p class="text-danger"><%= errors.precio.msg %></p>
                 <% } %>
