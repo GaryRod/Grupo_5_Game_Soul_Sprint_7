@@ -725,11 +725,19 @@ select {
 }
 
 .errorFatal {
-    border: 3px solid #da1313;
+    background-color: #dc5f5f;
+}
+
+.errorFatalLetras {
+    color: #ffffff;
 }
 
 .errorFatalDos {
-    border: 3px solid rgb(115, 255, 0);
+    background-color: rgb(170, 61, 61);
+}
+
+.errorFatalDosLetras {
+    color: rgb(255, 255, 255);
 }
 
 .text-danger{
