@@ -3,7 +3,7 @@ window.addEventListener('load', function(){
     let nombre = document.querySelector('#nombre_editar_producto')
     let descripcion = document.querySelector('#descripcion_editar_producto')
     let imagen = document.querySelector('#imagen_editar_producto')
-    let formatoDeImagen = ['.jpg','.jpeg','.png','.gif']
+    let formatoDeImagen = ['jpg',' jpeg',' png',' gif']
     let formulario = document.querySelector('#formulario_editar_producto')
     let precio = document.querySelector('#precio_editar_producto')
     let genero = document.querySelector("#genero_editar_producto")
@@ -32,13 +32,13 @@ window.addEventListener('load', function(){
             let error = 'Escriba un precio'
             errores.push(error)            
         }
-        if(imagen){
-            let nombreImagen = imagen.value
-            let extension = nombreImagen.split('.').pop()
-            if(!formatoDeImagen.includes(extension)){
-                let error = 'Los formatos permitidos son '+ formatoDeImagen
-                errores.push(error)                
-            }
+        if(imagen.value == ''){
+            let error = 'Seleccione un archivo de imágen'
+            errores.push(error)
+        }
+        if (imagen.value != '' && !(/\.(jpg|png|gif|jpeg)$/i).test(imagen.value)) {
+            let error = 'Los formatos permitidos son '+ formatoDeImagen;
+            errores.push(error)
         }
         if (errores.length > 0) {
             event.preventDefault();
@@ -64,6 +64,11 @@ window.addEventListener('load', function(){
             let erroresImagen = errores.indexOf('Los formatos permitidos son '+ formatoDeImagen)
             if(erroresImagen != -1){
                 errorImagen.innerHTML += errores[erroresImagen]
+            }
+            errorImagen.style.textAlign='center'
+            let erroresImagen2 = errores.indexOf('Seleccione un archivo de imágen')
+            if(erroresImagen2 != -1){
+                errorImagen.innerHTML += errores[erroresImagen2]
             }
             errorImagen.style.textAlign='center'
             let erroresPrecio = errores.indexOf('Escriba un precio')
