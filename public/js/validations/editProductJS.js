@@ -28,7 +28,7 @@ window.addEventListener('load', function(){
             let error = 'Seleccione una edición'
             errores.push(error)
         }
-        if(precio.value == ''){
+        if(precio.value == '' || isNaN(precio.value) == true){
             let error = 'Escriba un precio'
             errores.push(error)            
         }
