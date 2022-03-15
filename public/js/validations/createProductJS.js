@@ -45,7 +45,6 @@ window.addEventListener('load', function(){
         if (errores.length > 0) {
             event.preventDefault();
 
-            
             let errorNombre = document.querySelector('#error_nombre')
             let errorDescripcion = document.querySelector('#error_descripcion')
             let errorImagen = document.querySelector('#error_imagen')

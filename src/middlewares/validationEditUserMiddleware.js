@@ -12,12 +12,12 @@ const validaciones = [
         .isLength({min: 8}).withMessage("Debes escribir una contraseña de 8 o más caracteres"),
     body('editUserfoto').custom((value, {req})=>{
         let file = req.file
-        let acceptedExtensions = ['.jpg', '.png']
+        let acceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg']
         
         if(file){
             let fileExtension = path.extname(file.originalname)
             if (!acceptedExtensions.includes(fileExtension)){
-            throw new Error ('Las extensiones permitidas son .jpg .png')
+            throw new Error ('Las extensiones permitidas son .jpg, .png, .gif, .jpeg')
             }
         }
         return true;

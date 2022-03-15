@@ -17,13 +17,13 @@ const validaciones = [
         .isNumeric().withMessage("Sólo se permiten números"),
     body('imagen').custom((value, {req})=>{
         let file = req.file
-        let acceptedExtensions = ['.jpg', '.png']
+        let acceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg']
         if(!file){
             throw new Error ('Debes agregar una imagen')
         } else {
             let fileExtension = path.extname(file.originalname)
             if (!acceptedExtensions.includes(fileExtension)){
-            throw new Error ('Las extensiones permitidas son .jpg .png')
+            throw new Error ('Las extensiones permitidas son .jpg, .png, .gif, .jpeg')
             }
         }
         return true;
