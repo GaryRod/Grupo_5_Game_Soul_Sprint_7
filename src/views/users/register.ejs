@@ -33,6 +33,11 @@
                             <% if (locals.errors && errors.nombre) { %>
                                 <p class="text-danger"><%= errors.nombre.msg %></p>
                             <% } %>
+                            <div class="errores-registro">
+                                <ul class="errores-ul-registro-nombre" id="errores-ul-registro-nombre">
+
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="form__cont">
@@ -41,6 +46,11 @@
                             <% if (locals.errors && errors.email) { %>
                                 <p class="text-danger"><%= errors.email.msg %></p>
                             <% } %>
+                            <div class="errores-registro">
+                                <ul class="errores-ul-registro-email" id="errores-ul-registro-email">
+
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="form__cont">
@@ -49,6 +59,11 @@
                             <% if (locals.errors && errors.password) { %>
                                 <p class="text-danger"><%= errors.password.msg %></p>
                             <% } %>
+                            <div class="errores-registro">
+                                <ul class="errores-ul-registro-contraseña" id="errores-ul-registro-contraseña">
+
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="form__cont">
@@ -57,11 +72,21 @@
                             <% if (locals.errors && errors.fechaNacimiento) { %>
                                 <p class="text-danger"><%= errors.fechaNacimiento.msg %></p>
                             <% } %>
+                            <div class="errores-registro">
+                                <ul class="errores-ul-registro-fechaNacimiento" id="errores-ul-registro-fechaNacimiento">
+
+                                </ul>
+                            </div>
                         </div>
 
                         <div>
                             <label>Imagen de perfil:</label>
                             <input type="file" name="avatar" accept=".png, .jpg" id="registro-imagen">
+                        </div>
+                        <div class="errores-registro">
+                            <ul class="errores-ul-registro-imagen" id="errores-ul-registro-imagen">
+
+                            </ul>
                         </div>
                     </div>
 
@@ -72,6 +97,11 @@
                         <% if (locals.errors && errors.tyc) { %>
                             <p class="text-danger"><%= errors.tyc.msg %></p>
                         <% } %>
+                        <div class="errores-registro">
+                            <ul class="errores-ul-registro-terminos" id="errores-ul-registro-terminos">
+
+                            </ul>
+                        </div>
                     </div> 
 
                     <div class="form__cont-login-iniciar-sesion">        
