@@ -18,7 +18,7 @@ router.get('/create', authMiddleware, productController.createProduct);
 router.post('/create', upload.single("imagen"), validacionesProductos, productController.store);
 
 router.get('/edit/:id', authMiddleware, productController.editProduct);
-router.put('/edit/:id', upload.single("imagen"), productController.update);
+router.put('/edit/:id', upload.single("imagen"), validacionesProductos, productController.update);
 
 router.delete('/delete/:id', productController.destroy)
 
