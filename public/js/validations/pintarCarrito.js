@@ -1,8 +1,8 @@
-import { carrito, sasa } from "./carrito.js";
+import { carrito } from "./carrito.js";
 console.log(carrito)
 const contCarrito = document.querySelector('.carrito')
 
-sasa();
+
 function renderCarrito(){
     contCarrito.innerHTML +=""
     carrito.map(item=>{

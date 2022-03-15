@@ -25,9 +25,7 @@
                     <span><a href="/users/register" class="form__subtitulo-a">Crear cuenta</a></span>
                 </div>
 
-                <div class="errores-login">
-                    <ul class="ul-errores"></ul>
-                </div>
+                
 
                 <div class="form__contenedor-inputs">
                     <div class="form__cont">
@@ -38,6 +36,10 @@
                                 <%= errors.email.msg %> 
                             </div>
                         <% } %>
+                        <div class="errores-login">
+                            <ul class="ul-errores-email">
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="form__cont">
@@ -48,6 +50,10 @@
                                 <%= errors.password.msg %>
                             </div>
                         <% } %> 
+                        <div class="errores-login">
+                            <ul class="ul-errores-contraseña">
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
