@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     let password = document.getElementById("registro-password");
     let fechaNacimiento = document.getElementById("registro-fechaNacimiento");
     let terminos = document.getElementById("tyc");
-    
+
     formulario.addEventListener("submit", (event) => {
         let errores = [];
 
