@@ -7,15 +7,18 @@ window.addEventListener('load', function(){
 
     campoEmail.focus()
     formulario.addEventListener('submit', e=>{
+        let expEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/
         let errores = [];
         campoEmail.focus()
 
         if(campoEmail.value ==''){
-            errores.push('debes completar el campo de email')
+            let error = 'Debes completar el campo de email'
+            errores.push(error)
             campoEmail.classList.add("errorFatal");
         }
-        else if (!email.value.includes(".com")) {
-            errores.push("Por favor, escribe un mail válido");
+        else if (!expEmail.test (campoEmail.value)) {
+            let error = "Por favor, escribe un mail válido"
+            errores.push(error);
             campoEmail.classList.add("errorFatal");
             
         }
@@ -26,7 +29,8 @@ window.addEventListener('load', function(){
         }
         
         if(campoContraseña.value ==''){
-            errores.push('debes ingresar una contraseña')
+            let error = 'Debes ingresar una contraseña'
+            errores.push(error)
             campoContraseña.classList.add("errorFatal");
         }
         else{
@@ -46,5 +50,3 @@ window.addEventListener('load', function(){
         
     })
 })
-
-

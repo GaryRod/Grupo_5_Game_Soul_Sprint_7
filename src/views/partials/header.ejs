@@ -39,7 +39,9 @@
 
     <nav class="header__nav">
         <ul class="header__lista">
+            <% if (locals.isLogged) { %>
             <li class="header__items"><a href="/products/favoritos" class="header__enlaces">Favoritos</a></li>
+            <% } %>
             <li class="header__items"><a href="" class="header__enlaces">Ofertas</a></li>
             <li class="header__items"><a href="" class="header__enlaces">Consolas</a>
                 <ul class="header__sublista">

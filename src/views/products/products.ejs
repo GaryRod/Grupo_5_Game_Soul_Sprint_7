@@ -23,8 +23,8 @@
                         </div>
 
                         <div class="section-sec__cont-datos">
-                            <span class="section-sec__spans"><a href="/products/detail/<%= element.id %>" class="section-sec__titulo-enlace"><%= element.name_game %></a></span>
-                            <span class="section-sec__spans">$ <%= element.price %></span>
+                            <span id="titulo" class="section-sec__spans"><a href="/products/detail/<%= element.id %>" class="section-sec__titulo-enlace"><%= element.name_game %></a></span>
+                            <span id="precio" class="section-sec__spans">$ <%= element.price %></span>
                             <span class="button-carrito">Añadir al carrito</span>
                         </div>
 
@@ -34,8 +34,11 @@
             </div>
         </section>
     </main>
+   
 
     <%- include ('../partials/footer') %> 
+    <script src="../../../js/validations/carrito.js" type="module"></script>
+    
 </body>
     
 </html>

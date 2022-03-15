@@ -4,18 +4,19 @@ window.addEventListener("load", () => {
     let email = document.getElementById("registro-email");
     let password = document.getElementById("registro-password");
     let fechaNacimiento = document.getElementById("registro-fechaNacimiento");
-
+    let terminos = document.getElementById("tyc");
+    
     formulario.addEventListener("submit", (event) => {
         let errores = [];
 
         if (nombre.value == "") {
-            let errorNombreVacio = "Por favor, escribe un nombre";
-            errores.push(errorNombreVacio);
+            let error = "Por favor, escribe un nombre"
+            errores.push(error)
             nombre.classList.add("errorFatal");
             nombre.classList.add("errorFatalLetras");
         } else if (nombre.value.length <= 2) {
-            let errorNombreCorto = "Por favor, introduce un nombre con más de 2 carácteres"
-            errores.push(errorNombreCorto);
+            let error = "Por favor, introduce un nombre con más de 2 carácteres"
+            errores.push(error)
             nombre.classList.add("errorFatalDos");
             nombre.classList.add("errorFatalDosLetras");
         } else {
@@ -67,6 +68,10 @@ window.addEventListener("load", () => {
         } else {
             fechaNacimiento.classList.remove("errorFatal");
             fechaNacimiento.classList.remove("errorFatalLetras");
+        }
+        if(terminos.value == false){
+            let error = "Deves aceptar los terminos y condiciones"
+            errores.push(error)
         }
 
         if (errores.length > 0) {
