@@ -23,7 +23,7 @@
             <section class="form">
                     <div class="form__contenedor-subtitulos">         
                         <label class="tenesCuenta-registro">¿Tenés una cuenta?</label>
-                        <div><a href="/users/login" class="button-iniciarSesion">Iniciar Sesión</a></div>
+                        <div><a href="/users/login" class="button-iniciarSesion">Iniciar sesión</a></div>
                     </div> 
 
                     <div class="form__contenedor-inputs">
@@ -53,7 +53,7 @@
 
                         <div class="form__cont">
                             <label>Fecha de nacimiento:</label>
-                            <input type="date" name="fechaNacimiento" class="form__inputs" id="registro-fechaNacimiento">
+                            <input type="date" name="fechaNacimiento" class="form__inputs" id="registro-fechaNacimiento" value="<%= locals.oldData ? oldData.fechaNacimiento : null %>">
                             <% if (locals.errors && errors.fechaNacimiento) { %>
                                 <p class="text-danger"><%= errors.fechaNacimiento.msg %></p>
                             <% } %>
@@ -82,7 +82,7 @@
     </main>
 
     <%- include ('../partials/footer') %>
-    <script src="../../../js/validations/registerJS.js"></script>
+    <script src="/js/validations/registerJS.js"></script>
 
 </body>
 </html>
