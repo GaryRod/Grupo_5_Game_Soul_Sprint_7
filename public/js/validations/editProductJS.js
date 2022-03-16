@@ -43,13 +43,19 @@ window.addEventListener('load', function(){
         if (errores.length > 0) {
             event.preventDefault();
 
-            
             let errorNombre = document.querySelector('#error_nombre')
             let errorDescripcion = document.querySelector('#error_descripcion')
             let errorImagen = document.querySelector('#error_imagen')
             let errorPrecio = document.querySelector('#error_precio')
             let errorGenero = document.querySelector('#error_genero')
             let errorEdicion = document.querySelector('#error_edicion')
+
+            errorNombre.innerHTML = ''
+            errorDescripcion.innerHTML = ''
+            errorImagen.innerHTML = ''
+            errorPrecio.innerHTML = ''
+            errorGenero.innerHTML = ''
+            errorEdicion.innerHTML = ''
 
             let erroresNombre = errores.indexOf('El nombre debe contener mínimo 5 caracteres')
             if(erroresNombre != -1){

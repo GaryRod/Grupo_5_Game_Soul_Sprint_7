@@ -52,6 +52,13 @@ window.addEventListener('load', function(){
             let errorGenero = document.querySelector('#error_genero')
             let errorEdicion = document.querySelector('#error_edicion')
 
+            errorNombre.innerHTML = ''
+            errorDescripcion.innerHTML = ''
+            errorImagen.innerHTML = ''
+            errorPrecio.innerHTML = ''
+            errorGenero.innerHTML = ''
+            errorEdicion.innerHTML = ''
+
             let erroresNombre = errores.indexOf('El nombre debe contener mínimo 5 caracteres')
             if(erroresNombre != -1){
                 errorNombre.innerHTML += errores[erroresNombre]
