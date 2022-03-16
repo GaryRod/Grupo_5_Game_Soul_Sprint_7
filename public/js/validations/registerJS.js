@@ -16,6 +16,8 @@ window.addEventListener("load", () => {
     let expresionRegularValidacionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/;
     let expresionRegularValidacionImagen = /\.(jpg|png|JPG|PNG)$/i;
 
+
+    console.log(!terminos.checked);
     formulario.addEventListener("submit", (event) => {
         let errores = [];
 
@@ -71,7 +73,7 @@ window.addEventListener("load", () => {
         }
 
         if (fechaNacimiento.value == "") {
-            let errorFechaNacimientoVacia = "Por favor, por una fecha de nacimiento";
+            let errorFechaNacimientoVacia = "Por favor, elige tu fecha de nacimiento";
             errores.push(errorFechaNacimientoVacia);
             fechaNacimiento.classList.add("errorFatal");
             fechaNacimiento.classList.add("errorFatalLetras");
@@ -80,12 +82,12 @@ window.addEventListener("load", () => {
             fechaNacimiento.classList.remove("errorFatalLetras");
         }
 
-        if(!terminos.checked == true) {
-            let error = "Debes aceptar los terminos y condiciones"
+        if(!terminos.checked) {
+            let error = "Debes aceptar los términos y condiciones"
             errores.push(error)
         }
 
-        if (!(expresionRegularValidacionImagen).test(registroImagen.value)) {
+        if (registroImagen.value != '' && !(expresionRegularValidacionImagen).test(registroImagen.value)) {
             let errorImagen = 'Los formatos permitidos son ' + formatoDeImagen;
             errores.push(errorImagen);
         }
@@ -151,8 +153,6 @@ window.addEventListener("load", () => {
             for (let i = 0; i < errores.length; i++) {
                 erroresUlRegistro.innerHTML += `<li class="text-danger">${errores[i]}</li>`
             }*/ 
-        } else {
-            alert("Usuario registrado correctamente!")
         }
     })
 })

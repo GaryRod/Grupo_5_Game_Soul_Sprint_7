@@ -58,7 +58,6 @@ window.addEventListener('load', function(){
                 ulErroresContraseña.innerHTML += `<li class="text-danger">${errores[err]}</li>`
             }
         }
-        
     })
 })
 
