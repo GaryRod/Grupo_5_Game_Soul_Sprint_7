@@ -14,23 +14,48 @@ window.addEventListener('load', function(){
 
         if(nombre.value == '' || nombre.value.length < 6){
             let error = 'El nombre debe contener mínimo 5 caracteres'
-            errores.push(error)            
+            errores.push(error)
+            nombre.classList.add("errorFatal");
+            nombre.classList.add("errorFatalLetras");            
+        }else{
+            nombre.classList.remove("errorFatal");
+            nombre.classList.remove("errorFatalLetras");
         }
         if(descripcion.value == '' || descripcion.value.length <21){
             let error = 'La descripción debe contener mínimo 20 caracteres'
             errores.push(error)
+            descripcion.classList.add("errorFatal");
+            descripcion.classList.add("errorFatalLetras");            
+        }else{
+            descripcion.classList.remove("errorFatal");
+            descripcion.classList.remove("errorFatalLetras");
         }
         if(genero.value == '- Género -'){
             let error = 'Seleccione un género'
             errores.push(error)
+            genero.classList.add("errorFatal");
+            genero.classList.add("errorFatalLetras");            
+        }else{
+            genero.classList.remove("errorFatal");
+            genero.classList.remove("errorFatalLetras");
         }
         if(edicion.value == '- Edición -'){
             let error = 'Seleccione una edición'
             errores.push(error)
+            edicion.classList.add("errorFatal");
+            edicion.classList.add("errorFatalLetras");            
+        }else{
+            edicion.classList.remove("errorFatal");
+            edicion.classList.remove("errorFatalLetras");
         }
         if(precio.value == '' || isNaN(precio.value) == true){
             let error = 'Escriba un precio'
             errores.push(error)            
+            precio.classList.add("errorFatal");
+            precio.classList.add("errorFatalLetras");            
+        }else{
+            precio.classList.remove("errorFatal");
+            precio.classList.remove("errorFatalLetras");
         }
 
         if(imagen.value == ''){
