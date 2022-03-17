@@ -20,12 +20,10 @@ window.addEventListener('load', function(){
             let errorValidacion = "Por favor, escribe un mail válido"
             errores.push(errorValidacion);
             campoEmail.classList.add("errorFatal");
-            
         }
         else{
             campoEmail.classList.remove("errorFatal");
             campoContraseña.focus();
-            
         }
         
         if(campoContraseña.value ==''){
@@ -47,7 +45,6 @@ window.addEventListener('load', function(){
             let erro = errores.indexOf( "Por favor, escribe un mail válido")
             if(er != -1){
                 ulErroresEmail.innerHTML += `<li class="text-danger">${errores[er]}</li>`
-
             }
 
             else if(erro != -1){

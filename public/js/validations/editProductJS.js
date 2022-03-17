@@ -32,10 +32,7 @@ window.addEventListener('load', function(){
             let error = 'Escriba un precio'
             errores.push(error)            
         }
-        if(imagen.value == ''){
-            let error = 'Seleccione un archivo de imágen'
-            errores.push(error)
-        }
+        
         if (imagen.value != '' && !(/\.(jpg|png|gif|jpeg)$/i).test(imagen.value)) {
             let error = 'Los formatos permitidos son '+ formatoDeImagen;
             errores.push(error)
@@ -92,8 +89,6 @@ window.addEventListener('load', function(){
                 errorEdicion.innerHTML += errores[erroresEdicion]
             }
             errorEdicion.style.textAlign='center'
-        } else {
-            alert("Producto creado exitosamente!")
         }
     })
 })

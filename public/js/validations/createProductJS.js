@@ -14,23 +14,28 @@ window.addEventListener('load', function(){
 
         if(nombre.value == '' || nombre.value.length < 6){
             let error = 'El nombre debe contener mínimo 5 caracteres'
-            errores.push(error)            
+            errores.push(error)
+            nombre.classList.add("errorFatal");
         }
         if(descripcion.value == '' || descripcion.value.length <21){
             let error = 'La descripción debe contener mínimo 20 caracteres'
             errores.push(error)
+            descripcion.classList.add("errorFatal");
         }
         if(genero.value == '- Género -'){
             let error = 'Seleccione un género'
             errores.push(error)
+            genero.classList.add("errorFatal");
         }
         if(edicion.value == '- Edición -'){
             let error = 'Seleccione una edición'
             errores.push(error)
+            edicion.classList.add("errorFatal");
         }
         if(precio.value == '' || isNaN(precio.value) == true){
-            let error = 'Escriba un precio'
-            errores.push(error)            
+            let error = 'Escriba un precio, solo se admiten números'
+            errores.push(error)
+            precio.classList.add("errorFatal");          
         }
 
         if(imagen.value == ''){
@@ -95,8 +100,6 @@ window.addEventListener('load', function(){
                 errorEdicion.innerHTML += errores[erroresEdicion]
             }
             errorEdicion.style.textAlign='center'
-        } else {
-            alert("Producto creado exitosamente!")
         }
     })
 })

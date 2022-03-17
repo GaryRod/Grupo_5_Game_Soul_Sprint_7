@@ -574,6 +574,8 @@
 .input__create-product {
     width: 60%;
     border-radius: 5px;
+    outline: none;
+    border: #000 solid 1px;
 }
 
 .boton-enviar-producto {
@@ -729,10 +731,15 @@ select {
 
 .errorFatal {
     background-color: #dc5f5f;
+    color: #fff;
+}
+
+.errorFatal::placeholder{
+    color: rgb(226, 221, 221);
 }
 
 .errorFatalLetras {
-    color: #ffffff;
+    color: #fff;
 }
 
 .errorFatalDos {

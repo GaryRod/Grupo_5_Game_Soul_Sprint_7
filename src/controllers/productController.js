@@ -32,7 +32,7 @@ const productController = {
         let allGenres = await db.Genre.findAll();
         let allEditions = await db.Edition.findAll();
         const errores = validationResult(req);
-        
+
         if (errores.errors.length > 0 ) {
             return res.render('./products/createProduct',{
                 errors: errores.mapped(),
@@ -51,7 +51,7 @@ const productController = {
         })
 
 		await db.Image.create({
-			img_url: req.file ? req.file.filename : 'default.png',
+			img_url: req.file.filename,
 			games_id: producto.id
 		})
         res.redirect('/')
@@ -59,8 +59,8 @@ const productController = {
     editProduct: async (req, res) => {
         let allGenres = await db.Genre.findAll();
         let allEditions = await db.Edition.findAll();
-
-        let productToEdit = await db.Game.findByPk(req.params.id)
+        let productToEdit = await db.Game.findByPk(req.params.id,
+            {include: ['images']})
 
         res.render('./products/editProduct', {productToEdit, allGenres, allEditions})
     },
@@ -94,7 +94,7 @@ const productController = {
 			force: true
         })
 		await db.Image.create({
-			img_url: req.file ? req.file.filename : 'default.png',
+			img_url: req.file ? req.file.filename : req.body.oldImage,
 			games_id: req.params.id
 		})
         res.redirect('/')
@@ -120,7 +120,6 @@ const productController = {
     },
 	search: async (req, res) => {
 		let search = req.query.search;
-	
 		let productos = await db.Game.findAll({
 			where: {
 				name_game: { [Op.like]: "%" + search + "%" }

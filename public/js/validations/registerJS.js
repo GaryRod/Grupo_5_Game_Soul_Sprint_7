@@ -16,8 +16,6 @@ window.addEventListener("load", () => {
     let expresionRegularValidacionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/;
     let expresionRegularValidacionImagen = /\.(jpg|png|JPG|PNG)$/i;
 
-
-    console.log(!terminos.checked);
     formulario.addEventListener("submit", (event) => {
         let errores = [];
 
