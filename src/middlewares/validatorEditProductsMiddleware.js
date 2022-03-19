@@ -14,7 +14,13 @@ const validaciones = [
         .notEmpty().withMessage("Debes elegir una edición"),
     body('precio')
         .notEmpty().withMessage("Debes completar con un precio")
-        .isNumeric().withMessage("Sólo se permiten números"),
+        .isNumeric().withMessage("Sólo se permiten números")
+        .custom((value, {req})=> {
+            if (value <= 0) {
+                throw new Error ('Solo se admiten valores mayores 0')
+            }
+            return true
+        }),
     body('imagen').custom((value, {req})=>{
         let file = req.file
         let acceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg']

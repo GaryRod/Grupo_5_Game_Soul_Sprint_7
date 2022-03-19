@@ -35,7 +35,7 @@ window.addEventListener('load', function(){
             errores.push(error)
             genero.classList.add("errorFatal");
             genero.classList.add("errorFatalLetras");            
-        }else{
+        } else {
             genero.classList.remove("errorFatal");
             genero.classList.remove("errorFatalLetras");
         }
@@ -45,24 +45,19 @@ window.addEventListener('load', function(){
             edicion.classList.add("errorFatal");
         }
         if(precio.value == '' || isNaN(precio.value) == true){
-            let error = 'Escriba un precio, solo se admiten números'
+            let error = 'Escriba un precio, solo se aceptan números'
             errores.push(error)
             precio.classList.add("errorFatal");          
-            edicion.classList.add("errorFatalLetras");            
-        }else{
+            edicion.classList.add("errorFatalLetras");
+        } else if (precio.value <= 0) {
+            let error = 'El valor debe ser mayor a cero'
+            errores.push(error)
+            precio.classList.add("errorFatal");          
+            edicion.classList.add("errorFatalLetras");
+        } else {
             edicion.classList.remove("errorFatal");
             edicion.classList.remove("errorFatalLetras");
         }
-        if(precio.value == '' || isNaN(precio.value) == true){
-            let error = 'Escriba un precio'
-            errores.push(error)            
-            precio.classList.add("errorFatal");
-            precio.classList.add("errorFatalLetras");            
-        }else{
-            precio.classList.remove("errorFatal");
-            precio.classList.remove("errorFatalLetras");
-        }
-
         if(imagen.value == ''){
             let error = 'Seleccione un archivo de imágen'
             errores.push(error)
@@ -104,15 +99,19 @@ window.addEventListener('load', function(){
                 errorImagen.innerHTML += errores[erroresImagen]
             }
             errorImagen.style.textAlign='center'
-
             let erroresImagen2 = errores.indexOf('Seleccione un archivo de imágen')
             if(erroresImagen2 != -1){
                 errorImagen.innerHTML += errores[erroresImagen2]
             }
             errorImagen.style.textAlign='center'
-            let erroresPrecio = errores.indexOf('Escriba un precio')
+            let erroresPrecio = errores.indexOf('Escriba un precio, solo se aceptan números')
             if(erroresPrecio != -1){
                 errorPrecio.innerHTML += errores[erroresPrecio]
+            }
+            errorPrecio.style.textAlign='center'
+            let erroresPrecio2 = errores.indexOf('El valor debe ser mayor a cero')
+            if(erroresPrecio2 != -1){
+                errorPrecio.innerHTML += errores[erroresPrecio2]
             }
             errorPrecio.style.textAlign='center'
             let erroresGenero = errores.indexOf('Seleccione un género')

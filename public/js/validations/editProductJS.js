@@ -49,11 +49,16 @@ window.addEventListener('load', function(){
             edicion.classList.remove("errorFatalLetras");
         }
         if(precio.value == '' || isNaN(precio.value) == true){
-            let error = 'Escriba un precio'
+            let error = 'Escriba un precio, solo se aceptan números'
             errores.push(error)            
             precio.classList.add("errorFatal");
             precio.classList.add("errorFatalLetras");            
-        }else{
+        } else if (precio.value <= 0) {
+            let error = 'El valor debe ser mayor a cero'
+            errores.push(error)
+            precio.classList.add("errorFatal");          
+            edicion.classList.add("errorFatalLetras");
+        } else {
             precio.classList.remove("errorFatal");
             precio.classList.remove("errorFatalLetras");
         }
@@ -99,9 +104,14 @@ window.addEventListener('load', function(){
                 errorImagen.innerHTML += errores[erroresImagen2]
             }
             errorImagen.style.textAlign='center'
-            let erroresPrecio = errores.indexOf('Escriba un precio')
+            let erroresPrecio = errores.indexOf('Escriba un precio, solo se acpetan números')
             if(erroresPrecio != -1){
                 errorPrecio.innerHTML += errores[erroresPrecio]
+            }
+            errorPrecio.style.textAlign='center'
+            let erroresPrecio2 = errores.indexOf('El valor debe ser mayor a cero')
+            if(erroresPrecio2 != -1){
+                errorPrecio.innerHTML += errores[erroresPrecio2]
             }
             errorPrecio.style.textAlign='center'
             let erroresGenero = errores.indexOf('Seleccione un género')

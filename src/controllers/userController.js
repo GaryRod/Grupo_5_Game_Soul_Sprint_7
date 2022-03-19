@@ -2,7 +2,7 @@ const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs')
 const db = require("../database/models");
 
-const userController ={
+const userController = {
     register: (req, res) => {
         res.render('./users/register')
     },
@@ -35,7 +35,7 @@ const userController ={
             })
         }
 
-        -await db.User.create({
+        await db.User.create({
             first_name: req.body.nombre,
             email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
