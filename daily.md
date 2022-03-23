@@ -2,17 +2,14 @@
 
 # Daily:
 
-Este sprint se sintió muchísimo más complicado que el anterior (no solamente para nosotros, si no para otros grupos también), nos hemos sentido sin rumbo algunas veces, pero nos pudimos orientar y continuar con las distintas tareas que se nos han presentado, a continuación, detallaremos nuestra opinión sobre cada uno de los puntos de este sprint:
+A diferencia del sprint anterior (Bases de Datos y Sequelize), éste se sintió mucho más relajado, a continuación, detallaremos cómo nos fue en las distintas tareas:
 
-Bases de datos y Sequelize:
+Validaciones de back-end y front-end:
 
-1. Realizar una breve retrospectiva: No hay mucha complicación con este punto, como hemos venido haciéndolo.
-2. Actualizar el tablero de trabajo: Sin demasiados problemas tampoco.
-3. (Opcional) Implementar daily / weekly standups: A pesar de que sea opcional, decidimos implementarlo a partir del sprint pasado porque sentimos que da un perspectiva mucho más personal para la persona que lo lee.
-4. Diagrama de base de datos: Siguiendo las intrucciones y ejercicios tanto del Playground como de las clases en vivo, pudimos realizarlo sin tanta dificultad.
-5. Script de estructura: Debido a que utilizamos MySQL Workbench, pudimos realizar esta actividad en conjunto con la anterior.
-6. (Opcional) Script de datos: Es un tanto curioso porque realizamos el punto 4 y añadimos los datos de los juegos en esa misma base de datos, así que este punto también estaría hecho, sólo que tanto la estructura como los datos estarían en el structure.sql :sweat_smile:.
-7. Creación de carpeta Sequelize y archivos de modelos: Junto al siguiente punto, fue claramente lo que más se nos complicó, porque si no funcionaba bien, quizás había algún error a la hora de escribir la relación, así que teníamos que escribirlo exactamente igual, nos dio algunos problemitas pero nada que no se pueda resolver observando bien. 
-8. ¡CRUD!: Si tuviéramos que elegir entre este punto y el anterior en tema de dificultad, éste se lleva la corona. No solamente había que cambiar todo lo que habíamos realizado el sprint anterior (otros grupos quizás habrán borrado todo, pero nosotros simplemente lo comentamos), si no que además teníamos que tener sobre todo en cuenta las relaciones, porque si no las incluíamos en algunas secciones importantes (sobre todo en los productos), no iba a funcionar, eso sin mencionar las promesas, además de usar el .then(), también descubrimos que existe una forma más moderna de escribir promesas, siendo async/await esta forma, además de utilizar el try/catch, cosa que no se vio en el Playground.
+1. Realizar una breve retrospectiva: Hasta ahora, sin ninguna complicación.
+2. Actualizar el tablero de trabajo: Sin mucho problema tampoco.
+3. (Opcional) Implementar daily / weekly standups: A pesar de que en este sprint no nos hemos podido juntar a realizar alguna Daily, igualmente pudimos completar las tareas sin tanta dificultad porque nos comunicamos constantemente.
+4. Validaciones del back-end: Ya que hemos estado practicando con múltiples ejemplos en clases (tanto en vivo como en el Playground), no nos ha costado mucho.
+5. Validaciones del front-end: Quizás porque a varios de nosotros nos gusta más el Front que el Back, esta tarea se sintió un poco más sencilla que la anterior, al igual que con la anterior, con los ejemplos en clase y con el Playground, pudimos afianzar bien los conceptos y lo realizamos sin mayor dificultad.
 
-En conclusión, sin lugar a dudas, este sprint fue uno de los más complicados hasta ahora, se nos dificultó muchísimo, pero el saber que terminamos nos deja mucho más tranquilos, y nos da el pie para poder iniciar el próximo sprint esta vez sin confiarse demasiado!.
+En conclusión, este sprint fue como un aire fresco después de lo problemático que fue el anterior, ahora nos sentimos con más ganas de terminar el curso con broche de oro, con el siguiente sprint: APIs + React. ¡Lo estaremos esperando con ansias!.

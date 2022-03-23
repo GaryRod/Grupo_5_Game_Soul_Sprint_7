@@ -5,6 +5,7 @@ const productController = require('../controllers/productController');
 const upload = require("../middlewares/multerMiddleware");
 const authMiddleware = require('../middlewares/authMiddleware');
 const validacionesProductos = require('../middlewares/validatorProductsMiddleware');
+const validacionesEditProductos = require('../middlewares/validatorEditProductsMiddleware');
 
 /* Con readDetail - LEE PRODUCTO SEGUN ID */
 router.get('/', productController.products)
@@ -18,7 +19,7 @@ router.get('/create', authMiddleware, productController.createProduct);
 router.post('/create', upload.single("imagen"), validacionesProductos, productController.store);
 
 router.get('/edit/:id', authMiddleware, productController.editProduct);
-router.put('/edit/:id', upload.single("imagen"), validacionesProductos, productController.update);
+router.put('/edit/:id', upload.single("imagen"), validacionesEditProductos, productController.update);
 
 router.delete('/delete/:id', productController.destroy)
 

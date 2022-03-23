@@ -2,13 +2,13 @@
 
 # Retrospectiva:
 
-De la misma forma que lo venimos usando, continuaremos con la dinámica de la estrella de mar para poder realizar la retrospectiva:
+Seguiremos con la dinámica de la estrella de mar para poder cumplir con la retrospectiva:
 
-1. Comenzar a hacer :sunglasses:: Buscar más allá del curso información sobre los temas a realizar en el sprint, porque se pueden aprender mejor los conceptos con más ejemplos.
-2. Hacer más :thumbsup:: Dailys, a diferencia del anterior sprint, no hemos realizado muchas, pero aún así es algo que sentimos que debemos mejorar.
-3. Continuar haciendo :muscle:: Pedir ayudar cuando nos sintamos atascados, aunque no hay que abusar de esto, quizás al principio nos podemos sentir perdidos, y no está mal pedir ayuda para poder orientarse.
-4. Hacer menos :no_good:: Tratar de entregar los sprints antes del día especificado, debido a que siempre es mejor entregarlos con tiempo antes de hacer todo a último momento.
-5. Dejar de hacer :no_entry_sign:: No estar tan confiados para los próximos sprints, ya que nos puede perjudicar mucho.
+1. Comenzar a hacer :sunglasses:: Dailys, por diversas circunstancias no hemos podido realizarlas, así que tenemos que retomarlo, porque creemos que es muy importante para encarar el sprint.
+2. Hacer más :thumbsup:: Entregar el sprint antes del día especificado, ya que si seguimos así, más tranquilos nos podremos sentir al final del sprint.
+3. Continuar haciendo :muscle:: Seguir mejorando la comunicación, porque es fundamental para poder dejar en claro los temas que a cada uno le toca.
+4. Hacer menos :no_good:: No practicar tanto los conceptos, tenemos que afianzarlos bien para poder llevar a cabo las tareas dadas.
+5. Dejar de hacer :no_entry_sign:: No estar tan confiados para el último sprint, ya que es un tema que no hay que subestimar.
 
 # Tablero de trabajo actualizado:
 
