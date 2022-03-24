@@ -8,6 +8,35 @@ window.addEventListener('load', function(){
     let precio = document.querySelector('#precio_crear_producto')
     let genero = document.querySelector("#genero_crear_producto")
     let edicion = document.querySelector('#edicion_crear_producto')
+
+    nombre.addEventListener('blur', function(){
+        if(this.value == ''){
+            alert('Por favor, ingrese un Nombre')
+        }
+    })
+    descripcion.addEventListener('blur', function(){
+        if(this.value == ''){
+            alert('Por favor, ingrese una Descripción')
+        }
+    })
+
+    genero.addEventListener('blur', function(){
+        if(this.value == '- Género -'){
+            alert('Por favor, seleccione un Género')
+        }
+    })
+    edicion.addEventListener('blur', function(){
+        if(this.value == '- Edición -'){
+            alert('Por favor, seleccione una Edición')
+        }
+    })
+
+    precio.addEventListener('blur', function(){
+        if(this.value == ''){
+            alert('Por favor, ingrese un Precio')
+        }
+    })
+
     formulario.addEventListener('submit', function(event){
 
         let errores=[] 
