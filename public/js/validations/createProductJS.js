@@ -65,7 +65,11 @@ window.addEventListener('load', function(){
             errorPrecio.textContent = 'Escriba un precio, solo se aceptan números'
             precio.classList.add("errorFatal");
             errorPrecio.style.textAlign = 'center'           
-        }else{
+        } else if (precio.value <= 0) {
+            errorPrecio.textContent = 'El valor debe ser mayor a cero'
+            precio.classList.add("errorFatal");
+            errorPrecio.style.textAlign = 'center'           
+        } else {
             errorPrecio.textContent = ''
             precio.classList.remove("errorFatal");
         }
@@ -75,7 +79,11 @@ window.addEventListener('load', function(){
             errorImagen.textContent = 'Seleccione un archivo de imágen'
             imagen.classList.add("errorFatal");
             errorImagen.style.textAlign = 'center'           
-        }else{
+        } else if (imagen.value != '' && !(/\.(jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG)$/i).test(imagen.value)) {
+            errorImagen.textContent = 'Los formatos permitidos son '+ formatoDeImagen;
+            imagen.classList.add("errorFatal");
+            errorImagen.style.textAlign = 'center'  
+        } else {
             errorImagen.textContent = ''
             imagen.classList.remove("errorFatal");
         }
@@ -89,7 +97,6 @@ window.addEventListener('load', function(){
             let error = 'El nombre debe contener mínimo 5 caracteres'
             errores.push(error)
             nombre.classList.add("errorFatal");
-                       
         }else{
             nombre.classList.remove("errorFatal");
             
@@ -98,7 +105,6 @@ window.addEventListener('load', function(){
             let error = 'La descripción debe contener mínimo 20 caracteres'
             errores.push(error)
             descripcion.classList.add("errorFatal");
-                        
         }else{
             descripcion.classList.remove("errorFatal");
             
@@ -107,7 +113,6 @@ window.addEventListener('load', function(){
             let error = 'Seleccione un género'
             errores.push(error)
             genero.classList.add("errorFatal");
-                      
         } else {
             genero.classList.remove("errorFatal");
             
@@ -126,10 +131,8 @@ window.addEventListener('load', function(){
             let error = 'El valor debe ser mayor a cero'
             errores.push(error)
             precio.classList.add("errorFatal");          
-            
         } else {
             edicion.classList.remove("errorFatal");
-           
         }
         if(imagen.value == ''){
             let error = 'Seleccione un archivo de imágen'
@@ -143,8 +146,6 @@ window.addEventListener('load', function(){
         if (errores.length > 0) {
             event.preventDefault();
 
-            
-            
             errorNombre.innerHTML = ''
             errorDescripcion.innerHTML = ''
             errorImagen.innerHTML = ''

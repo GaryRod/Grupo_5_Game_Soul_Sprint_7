@@ -65,7 +65,11 @@ window.addEventListener('load', function(){
             errorPrecio.textContent = 'Escriba un precio, solo se aceptan números'
             precio.classList.add("errorFatal");
             errorPrecio.style.textAlign = 'center'           
-        }else{
+        } else if (precio.value <= 0) {
+            errorPrecio.textContent = 'El valor debe ser mayor a cero'
+            precio.classList.add("errorFatal");
+            errorPrecio.style.textAlign = 'center'           
+        } else {
             errorPrecio.textContent = ''
             precio.classList.remove("errorFatal");
         }
@@ -75,7 +79,11 @@ window.addEventListener('load', function(){
             errorImagen.textContent = 'Seleccione un archivo de imágen'
             imagen.classList.add("errorFatal");
             errorImagen.style.textAlign = 'center'           
-        }else{
+        } else if (imagen.value != '' && !(/\.(jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG)$/i).test(imagen.value)) {
+            errorImagen.textContent = 'Los formatos permitidos son '+ formatoDeImagen;
+            imagen.classList.add("errorFatal");
+            errorImagen.style.textAlign = 'center'   
+        } else {
             errorImagen.textContent = ''
             imagen.classList.remove("errorFatal");
         }
